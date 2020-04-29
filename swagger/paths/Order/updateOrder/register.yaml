@@ -1,0 +1,5 @@
+content:
+  application/json:
+    schema:
+      $ref: ../../../schemas/index.yaml#/updateOrder
+description: Order details to update details

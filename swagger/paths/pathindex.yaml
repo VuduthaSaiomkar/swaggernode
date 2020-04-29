@@ -1,0 +1,16 @@
+/Orders/createOrder:
+  $ref: ./Order/createOrder/index.yaml
+/Orders/updateOrder:
+  $ref: ./Order/updateOrder/index.yaml
+/partLabel/createLabel:
+  $ref: ./PartLabel/index.yaml
+/storeRequest/creatstoreRequest:
+  $ref: ./StoreRequest/createStoreRequest/index.yaml
+/storeRequest/updatestoreRequest:
+  $ref: ./StoreRequest/updateStoreRequest/index.yaml
+/queries/getLabel:
+  $ref: ./queries/getLabel/index.yaml
+/queries/getorderlist:
+  $ref: ./queries/getorderlist/index.yaml
+
+

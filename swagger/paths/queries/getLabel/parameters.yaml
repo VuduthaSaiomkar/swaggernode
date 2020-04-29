@@ -1,0 +1,6 @@
+- in: query
+  name: QrID
+  description: pass an optional search ID for looking up part  details
+  required: true
+  schema:
+    type: string

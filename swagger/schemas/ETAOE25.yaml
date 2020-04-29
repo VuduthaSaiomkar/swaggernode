@@ -1,0 +1,12 @@
+type: object
+properties:
+  ETAS2OEShipperName:
+    type: string
+    example: dealer1
+  ETAS2OELRNumber:
+    type: int
+    example: 1234
+  ETAS2OEShipperContactNum:
+    type: int
+    example: 45612
+    

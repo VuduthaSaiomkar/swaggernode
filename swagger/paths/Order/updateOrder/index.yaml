@@ -1,0 +1,11 @@
+post:
+  tags:
+    - Orders
+  summary: update order from sources
+  operationId: updateOrder
+  description: |
+    By Passing appropiate Json to store updateOrder
+  requestBody:
+    $ref: ./register.yaml
+  responses:
+    $ref: ./reponse.yaml

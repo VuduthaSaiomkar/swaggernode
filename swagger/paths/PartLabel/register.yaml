@@ -1,0 +1,5 @@
+content:
+  application/json:
+    schema:
+      $ref: ../../schemas/index.yaml#/PartLabel
+description: partLabel details to register

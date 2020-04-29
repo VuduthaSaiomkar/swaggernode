@@ -1,0 +1,11 @@
+post:
+  tags:
+    - storeRequest
+  summary: create create store Request from sources
+  operationId: creatstoreRequest
+  description: |
+    By Passing appropiate Json to create storeRequest
+  requestBody:
+    $ref: ./register.yaml
+  responses:
+    $ref: ./reponse.yaml

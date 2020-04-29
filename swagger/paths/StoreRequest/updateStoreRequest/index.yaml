@@ -1,0 +1,11 @@
+post:
+  tags:
+    - storeRequest
+  summary: update  store request from sources
+  operationId: updatestoreRequest
+  description: |
+    By Passing appropiate Json to update store request
+  requestBody:
+    $ref: ./register.yaml
+  responses:
+    $ref: ./reponse.yaml

@@ -1,0 +1,27 @@
+type: object
+required:
+  - PartID
+  - Slno
+  - Batch
+  - Quantity
+  - OrderID
+  - MMYYYY
+properties:
+  PartID:
+    type: string
+    example: part1
+  Slno:
+    type: string
+    example: slno1
+  Batch:
+    type: string
+    example: batch1
+  Quantity:
+    type: int
+    example: 0
+  MMYYYY:
+    type : string
+    example: 292020
+    
+
+

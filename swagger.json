@@ -1,0 +1,951 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Medi-Track",
+    "description": "Medi track Application for tracking sources",
+    "version": "1.0.0",
+    "contact": {
+      "email": "vudathasaiomkar@gmail.com"
+    }
+  },
+  "paths": {
+    "/Orders/createOrder": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "create order from sources",
+        "operationId": "createOrder",
+        "content": [
+          "application/json"
+        ],
+        "description": "By Passing appropiate Json to store CreateOrder\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "OrderID",
+                  "SupplierID",
+                  "SupplierName",
+                  "OEMUserID",
+                  "PartID",
+                  "PartName",
+                  "Quantity",
+                  "Notes",
+                  "Status"
+                ],
+                "properties": {
+                  "OrderID": {
+                    "type": "string"
+                  },
+                  "SupplierID": {
+                    "type": "string"
+                  },
+                  "SupplierName": {
+                    "type": "string"
+                  },
+                  "OEMUserID": {
+                    "type": "string"
+                  },
+                  "PartID": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "PartName": {
+                    "type": "string",
+                    "example": "Cena"
+                  },
+                  "Quantity": {
+                    "type": "int",
+                    "example": 0
+                  },
+                  "Notes": {
+                    "type": "string",
+                    "example": "any comments"
+                  },
+                  "Status": {
+                    "type": "string",
+                    "enum": [
+                      "1001",
+                      "1002",
+                      "1003",
+                      "1004",
+                      "1005"
+                    ],
+                    "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Order details to update details"
+        },
+        "responses": {
+          "200": {
+            "description": "Order registered"
+          },
+          "201": {
+            "description": "Order registered"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          },
+          "500": {
+            "description": "Internal error / invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/Orders/updateOrder": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "update order from sources",
+        "operationId": "updateOrder",
+        "description": "By Passing appropiate Json to store updateOrder\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "OrderID",
+                  "SupplierID",
+                  "SupplierName",
+                  "OEMUserID",
+                  "PartID",
+                  "PartName",
+                  "Quantity",
+                  "Notes",
+                  "Status"
+                ],
+                "properties": {
+                  "OrderID": {
+                    "type": "string"
+                  },
+                  "SupplierID": {
+                    "type": "string"
+                  },
+                  "SupplierName": {
+                    "type": "string"
+                  },
+                  "OEMUserID": {
+                    "type": "string"
+                  },
+                  "PartID": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "PartName": {
+                    "type": "string",
+                    "example": "Cena"
+                  },
+                  "Quantity": {
+                    "type": "int",
+                    "example": 0
+                  },
+                  "Notes": {
+                    "type": "string",
+                    "example": "any comments"
+                  },
+                  "Status": {
+                    "type": "string",
+                    "enum": [
+                      "1001",
+                      "1002",
+                      "1003",
+                      "1004",
+                      "1005"
+                    ],
+                    "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+                  },
+                  "ETAOE25": {
+                    "type": "object",
+                    "properties": {
+                      "ETAS2OEShipperName": {
+                        "type": "string",
+                        "example": "dealer1"
+                      },
+                      "ETAS2OELRNumber": {
+                        "type": "int",
+                        "example": 1234
+                      },
+                      "ETAS2OEShipperContactNum": {
+                        "type": "int",
+                        "example": 45612
+                      }
+                    }
+                  },
+                  "ATAOE2S": {
+                    "type": "object",
+                    "properties": {
+                      "ATAOE2SShipperName": {
+                        "type": "string",
+                        "example": "dealer1"
+                      },
+                      "ATAS2OELRNumber": {
+                        "type": "int",
+                        "example": 1234
+                      },
+                      "ATAS2OEShipperContactNum": {
+                        "type": "int",
+                        "example": 45612
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Order details to update details"
+        },
+        "responses": {
+          "200": {
+            "description": "Order registered"
+          },
+          "201": {
+            "description": "Order registered"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          },
+          "500": {
+            "description": "Internal error / invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/partLabel/createLabel": {
+      "post": {
+        "tags": [
+          "partLabel"
+        ],
+        "summary": "create partLabel from sources",
+        "operationId": "createLabel",
+        "description": "By Passing appropiate Json to create partLabel\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "PartID",
+                  "Slno",
+                  "Batch",
+                  "Quantity",
+                  "OrderID",
+                  "MMYYYY"
+                ],
+                "properties": {
+                  "PartID": {
+                    "type": "string",
+                    "example": "part1"
+                  },
+                  "Slno": {
+                    "type": "string",
+                    "example": "slno1"
+                  },
+                  "Batch": {
+                    "type": "string",
+                    "example": "batch1"
+                  },
+                  "Quantity": {
+                    "type": "int",
+                    "example": 0
+                  },
+                  "MMYYYY": {
+                    "type": "string",
+                    "example": 292020
+                  }
+                }
+              }
+            }
+          },
+          "description": "partLabel details to register"
+        },
+        "responses": {
+          "200": {
+            "description": "partLabel registered"
+          },
+          "201": {
+            "description": "partLabel registered"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          },
+          "500": {
+            "description": "Internal error / invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/storeRequest/creatstoreRequest": {
+      "post": {
+        "tags": [
+          "storeRequest"
+        ],
+        "summary": "create create store Request from sources",
+        "operationId": "creatstoreRequest",
+        "description": "By Passing appropiate Json to create storeRequest\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "RequestID",
+                  "StoreID",
+                  "StoreName",
+                  "PartID",
+                  "PartName",
+                  "Quantity",
+                  "Notes",
+                  "Status"
+                ],
+                "properties": {
+                  "RequestID": {
+                    "type": "string"
+                  },
+                  "StoreID": {
+                    "type": "string"
+                  },
+                  "StoreName": {
+                    "type": "string"
+                  },
+                  "PartID": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "PartName": {
+                    "type": "string",
+                    "example": "Cena"
+                  },
+                  "Quantity": {
+                    "type": "int",
+                    "example": 0
+                  },
+                  "Notes": {
+                    "type": "string",
+                    "example": "any comments"
+                  },
+                  "Status": {
+                    "type": "string",
+                    "enum": [
+                      "1001",
+                      "1002",
+                      "1003",
+                      "1004",
+                      "1005"
+                    ],
+                    "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+                  }
+                }
+              }
+            }
+          },
+          "description": "storeRequest details to register"
+        },
+        "responses": {
+          "200": {
+            "description": "storeRequest registered"
+          },
+          "201": {
+            "description": "storeRequest registered"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          },
+          "500": {
+            "description": "Internal error / invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/storeRequest/updatestoreRequest": {
+      "post": {
+        "tags": [
+          "storeRequest"
+        ],
+        "summary": "update  store request from sources",
+        "operationId": "updatestoreRequest",
+        "description": "By Passing appropiate Json to update store request\n",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "RequestID",
+                  "StoreID",
+                  "StoreName",
+                  "PartID",
+                  "PartName",
+                  "Quantity",
+                  "Notes",
+                  "Status"
+                ],
+                "properties": {
+                  "RequestID": {
+                    "type": "string"
+                  },
+                  "StoreID": {
+                    "type": "string"
+                  },
+                  "StoreName": {
+                    "type": "string"
+                  },
+                  "PartID": {
+                    "type": "string",
+                    "example": "John"
+                  },
+                  "PartName": {
+                    "type": "string",
+                    "example": "Cena"
+                  },
+                  "Quantity": {
+                    "type": "int",
+                    "example": 0
+                  },
+                  "Notes": {
+                    "type": "string",
+                    "example": "any comments"
+                  },
+                  "Status": {
+                    "type": "string",
+                    "enum": [
+                      "1001",
+                      "1002",
+                      "1003",
+                      "1004",
+                      "1005"
+                    ],
+                    "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+                  },
+                  "ETAOE25": {
+                    "type": "object",
+                    "properties": {
+                      "ETAS2OEShipperName": {
+                        "type": "string",
+                        "example": "dealer1"
+                      },
+                      "ETAS2OELRNumber": {
+                        "type": "int",
+                        "example": 1234
+                      },
+                      "ETAS2OEShipperContactNum": {
+                        "type": "int",
+                        "example": 45612
+                      }
+                    }
+                  },
+                  "ATAOE2S": {
+                    "type": "object",
+                    "properties": {
+                      "ATAOE2SShipperName": {
+                        "type": "string",
+                        "example": "dealer1"
+                      },
+                      "ATAS2OELRNumber": {
+                        "type": "int",
+                        "example": 1234
+                      },
+                      "ATAS2OEShipperContactNum": {
+                        "type": "int",
+                        "example": 45612
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "storeRequest details to update details"
+        },
+        "responses": {
+          "200": {
+            "description": "storeRequest registered"
+          },
+          "201": {
+            "description": "storeRequest registered"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          },
+          "500": {
+            "description": "Internal error / invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/queries/getLabel": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "summary": "create query from sources",
+        "operationId": "getByID",
+        "description": "By Passing appropiate ID to get part label and order\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "QrID",
+            "description": "pass an optional search ID for looking up part  details",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object of PIN",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "partLabel registered"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          },
+          "500": {
+            "description": "Internal error / invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/queries/getorderlist": {
+      "get": {
+        "tags": [
+          "Queries"
+        ],
+        "summary": "create partLabel from sources",
+        "operationId": "getOrdersList",
+        "description": "By Passing appropiate ID to get part label and order\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "queryString",
+            "description": "pass an optional search ID for looking up part  details",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object of orderlist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": "object"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "partLabel registered"
+          },
+          "400": {
+            "description": "invalid input, object invalid"
+          },
+          "409": {
+            "description": "an existing item already exists"
+          },
+          "500": {
+            "description": "Internal error / invalid input, object invalid"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegisterOrder": {
+        "type": "object",
+        "required": [
+          "OrderID",
+          "SupplierID",
+          "SupplierName",
+          "OEMUserID",
+          "PartID",
+          "PartName",
+          "Quantity",
+          "Notes",
+          "Status"
+        ],
+        "properties": {
+          "OrderID": {
+            "type": "string"
+          },
+          "SupplierID": {
+            "type": "string"
+          },
+          "SupplierName": {
+            "type": "string"
+          },
+          "OEMUserID": {
+            "type": "string"
+          },
+          "PartID": {
+            "type": "string",
+            "example": "John"
+          },
+          "PartName": {
+            "type": "string",
+            "example": "Cena"
+          },
+          "Quantity": {
+            "type": "int",
+            "example": 0
+          },
+          "Notes": {
+            "type": "string",
+            "example": "any comments"
+          },
+          "Status": {
+            "type": "string",
+            "enum": [
+              "1001",
+              "1002",
+              "1003",
+              "1004",
+              "1005"
+            ],
+            "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+          }
+        }
+      },
+      "ETAOE25": {
+        "type": "object",
+        "properties": {
+          "ETAS2OEShipperName": {
+            "type": "string",
+            "example": "dealer1"
+          },
+          "ETAS2OELRNumber": {
+            "type": "int",
+            "example": 1234
+          },
+          "ETAS2OEShipperContactNum": {
+            "type": "int",
+            "example": 45612
+          }
+        }
+      },
+      "ATAOE25": {
+        "type": "object",
+        "properties": {
+          "ATAOE2SShipperName": {
+            "type": "string",
+            "example": "dealer1"
+          },
+          "ATAS2OELRNumber": {
+            "type": "int",
+            "example": 1234
+          },
+          "ATAS2OEShipperContactNum": {
+            "type": "int",
+            "example": 45612
+          }
+        }
+      },
+      "PartLabel": {
+        "type": "object",
+        "required": [
+          "PartID",
+          "Slno",
+          "Batch",
+          "Quantity",
+          "OrderID",
+          "MMYYYY"
+        ],
+        "properties": {
+          "PartID": {
+            "type": "string",
+            "example": "part1"
+          },
+          "Slno": {
+            "type": "string",
+            "example": "slno1"
+          },
+          "Batch": {
+            "type": "string",
+            "example": "batch1"
+          },
+          "Quantity": {
+            "type": "int",
+            "example": 0
+          },
+          "MMYYYY": {
+            "type": "string",
+            "example": 292020
+          }
+        }
+      },
+      "StoreRequest": {
+        "type": "object",
+        "required": [
+          "RequestID",
+          "StoreID",
+          "StoreName",
+          "PartID",
+          "PartName",
+          "Quantity",
+          "Notes",
+          "Status"
+        ],
+        "properties": {
+          "RequestID": {
+            "type": "string"
+          },
+          "StoreID": {
+            "type": "string"
+          },
+          "StoreName": {
+            "type": "string"
+          },
+          "PartID": {
+            "type": "string",
+            "example": "John"
+          },
+          "PartName": {
+            "type": "string",
+            "example": "Cena"
+          },
+          "Quantity": {
+            "type": "int",
+            "example": 0
+          },
+          "Notes": {
+            "type": "string",
+            "example": "any comments"
+          },
+          "Status": {
+            "type": "string",
+            "enum": [
+              "1001",
+              "1002",
+              "1003",
+              "1004",
+              "1005"
+            ],
+            "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+          }
+        }
+      },
+      "updateOrder": {
+        "type": "object",
+        "required": [
+          "OrderID",
+          "SupplierID",
+          "SupplierName",
+          "OEMUserID",
+          "PartID",
+          "PartName",
+          "Quantity",
+          "Notes",
+          "Status"
+        ],
+        "properties": {
+          "OrderID": {
+            "type": "string"
+          },
+          "SupplierID": {
+            "type": "string"
+          },
+          "SupplierName": {
+            "type": "string"
+          },
+          "OEMUserID": {
+            "type": "string"
+          },
+          "PartID": {
+            "type": "string",
+            "example": "John"
+          },
+          "PartName": {
+            "type": "string",
+            "example": "Cena"
+          },
+          "Quantity": {
+            "type": "int",
+            "example": 0
+          },
+          "Notes": {
+            "type": "string",
+            "example": "any comments"
+          },
+          "Status": {
+            "type": "string",
+            "enum": [
+              "1001",
+              "1002",
+              "1003",
+              "1004",
+              "1005"
+            ],
+            "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+          },
+          "ETAOE25": {
+            "type": "object",
+            "properties": {
+              "ETAS2OEShipperName": {
+                "type": "string",
+                "example": "dealer1"
+              },
+              "ETAS2OELRNumber": {
+                "type": "int",
+                "example": 1234
+              },
+              "ETAS2OEShipperContactNum": {
+                "type": "int",
+                "example": 45612
+              }
+            }
+          },
+          "ATAOE2S": {
+            "type": "object",
+            "properties": {
+              "ATAOE2SShipperName": {
+                "type": "string",
+                "example": "dealer1"
+              },
+              "ATAS2OELRNumber": {
+                "type": "int",
+                "example": 1234
+              },
+              "ATAS2OEShipperContactNum": {
+                "type": "int",
+                "example": 45612
+              }
+            }
+          }
+        }
+      },
+      "updateStoreRequest": {
+        "type": "object",
+        "required": [
+          "RequestID",
+          "StoreID",
+          "StoreName",
+          "PartID",
+          "PartName",
+          "Quantity",
+          "Notes",
+          "Status"
+        ],
+        "properties": {
+          "RequestID": {
+            "type": "string"
+          },
+          "StoreID": {
+            "type": "string"
+          },
+          "StoreName": {
+            "type": "string"
+          },
+          "PartID": {
+            "type": "string",
+            "example": "John"
+          },
+          "PartName": {
+            "type": "string",
+            "example": "Cena"
+          },
+          "Quantity": {
+            "type": "int",
+            "example": 0
+          },
+          "Notes": {
+            "type": "string",
+            "example": "any comments"
+          },
+          "Status": {
+            "type": "string",
+            "enum": [
+              "1001",
+              "1002",
+              "1003",
+              "1004",
+              "1005"
+            ],
+            "description": "status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM"
+          },
+          "ETAOE25": {
+            "type": "object",
+            "properties": {
+              "ETAS2OEShipperName": {
+                "type": "string",
+                "example": "dealer1"
+              },
+              "ETAS2OELRNumber": {
+                "type": "int",
+                "example": 1234
+              },
+              "ETAS2OEShipperContactNum": {
+                "type": "int",
+                "example": 45612
+              }
+            }
+          },
+          "ATAOE2S": {
+            "type": "object",
+            "properties": {
+              "ATAOE2SShipperName": {
+                "type": "string",
+                "example": "dealer1"
+              },
+              "ATAS2OELRNumber": {
+                "type": "int",
+                "example": 1234
+              },
+              "ATAS2OEShipperContactNum": {
+                "type": "int",
+                "example": 45612
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

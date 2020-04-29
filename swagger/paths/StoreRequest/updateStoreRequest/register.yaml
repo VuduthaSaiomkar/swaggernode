@@ -1,0 +1,5 @@
+content:
+  application/json:
+    schema:
+      $ref: ../../../schemas/index.yaml#/updateStoreRequest
+description: storeRequest details to update details

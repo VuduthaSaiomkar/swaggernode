@@ -1,0 +1,11 @@
+get:
+  tags:
+    - Queries
+  summary: create query from sources
+  operationId: getByID
+  description: |
+    By Passing appropiate ID to get part label and order
+  parameters:
+    $ref: ./parameters.yaml
+  responses:
+    $ref: ./reponse.yaml

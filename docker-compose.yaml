@@ -1,0 +1,16 @@
+version : '2'
+
+
+
+services:
+  ngnix:
+    image: nginxservice
+    ports: 
+      - "8080:80"
+
+
+  nodeserver:
+    build : .
+    ports:
+      - "4000:4000"
+

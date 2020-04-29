@@ -1,0 +1,42 @@
+type: object
+required:
+  - OrderID
+  - SupplierID
+  - SupplierName
+  - OEMUserID
+  - PartID
+  - PartName
+  - Quantity
+  - Notes
+  - Status
+properties:
+  OrderID:
+    type: string
+  SupplierID:
+    type: string
+  SupplierName:
+    type: string
+  OEMUserID:
+    type: string
+  PartID:
+    type: string
+    example: John
+  PartName:
+    type: string
+    example: Cena
+  Quantity:
+    type: int
+    example: 0
+  Notes:
+    type: string
+    example: any comments
+  Status:
+    type: string 
+    enum: ["1001","1002","1003","1004","1005"]
+    description: 'status. 1001: Order Raised,1002:Order Recevied by suppiler,1003:order ready to ship,1004:order is shpped by suppiler,1005:shipment recevied by OEM'
+  ETAOE25:
+    $ref: ./index.yaml#/ETAOE25
+  ATAOE2S:
+    $ref: ./index.yaml#/ATAOE25
+  
+  

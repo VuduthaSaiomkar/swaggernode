@@ -1,0 +1,19 @@
+'201':
+  description: partLabel registered
+'200':
+  description: A JSON object of orderlist
+  content:
+    application/json:
+      schema: 
+        type: array
+        items: object
+
+    text/plain:
+      schema: 
+        type: string
+'400':
+  description: 'invalid input, object invalid'
+'409':
+  description: an existing item already exists
+'500':
+  description: Internal error / invalid input, object invalid

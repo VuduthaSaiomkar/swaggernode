@@ -1,0 +1,11 @@
+post:
+  tags:
+    - partLabel
+  summary: create partLabel from sources
+  operationId: createLabel
+  description: |
+    By Passing appropiate Json to create partLabel
+  requestBody:
+    $ref: ./register.yaml
+  responses:
+    $ref: ./reponse.yaml

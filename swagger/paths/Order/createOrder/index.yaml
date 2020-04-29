@@ -1,0 +1,13 @@
+post:
+  tags:
+    - Orders
+  summary: create order from sources
+  operationId: createOrder
+  content:
+    - application/json
+  description: |
+    By Passing appropiate Json to store CreateOrder
+  requestBody:
+    $ref: ./register.yaml
+  responses:
+    $ref: ./reponse.yaml

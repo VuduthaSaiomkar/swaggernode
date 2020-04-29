@@ -1,0 +1,15 @@
+RegisterOrder:
+  $ref: ./createorder.yaml
+ETAOE25:
+  $ref: ./ETAOE25.yaml
+ATAOE25:
+  $ref: ./ATAOE25.yaml
+PartLabel:
+  $ref: ./PartLabel.yaml
+StoreRequest:
+  $ref: ./storeRequest.yaml
+updateOrder:
+  $ref: ./updateOrder.yaml
+updateStoreRequest:
+  $ref: ./updatestoreRequest.yaml
+
